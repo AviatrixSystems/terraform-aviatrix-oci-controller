@@ -45,10 +45,10 @@ variable "product_version" {
   default     = "6.3.0"
 }
 
-variable "enabled" {
-  type        = bool
-  description = "Enable local values."
-  default     = true
+variable "resource_count" {
+  type = number
+  description = "Resource number."
+  default = 1
 }
 
 variable "use_existing_network" {

@@ -1,5 +1,4 @@
 locals {
-  enabled                  = var.enabled
   listing_id               = var.license_model == "BYOL" ? var.mp_listings["BYOL"] : var.mp_listings["PAID"]
   listing_resource_version = var.license_model == "BYOL" ? var.mp_byol_versions[var.product_version] : var.mp_paid_versions[var.product_version]
   listing_resource_id      = var.license_model == "BYOL" ? var.mp_byol_listing_resource_id[var.mp_byol_versions[var.product_version]] : var.mp_paid_listing_resource_id[var.mp_paid_versions[var.product_version]]
@@ -7,7 +6,7 @@ locals {
 
 #Get Image Agreement
 resource "oci_core_app_catalog_listing_resource_version_agreement" "mp_image_agreement" {
-  count = local.enabled ? 1 : 0
+  count = var.resource_count
 
   listing_id               = local.listing_id
   listing_resource_version = local.listing_resource_version
@@ -41,7 +40,7 @@ resource "oci_core_subnet" "public_subnet" {
 
 #Accept Terms and Subscribe to the image, placing the image in a particular compartment
 resource "oci_core_app_catalog_subscription" "mp_image_subscription" {
-  count = local.enabled ? 1 : 0
+  count = var.resource_count
 
   compartment_id           = var.compartment_ocid
   eula_link                = oci_core_app_catalog_listing_resource_version_agreement.mp_image_agreement[0].eula_link
@@ -58,7 +57,7 @@ resource "oci_core_app_catalog_subscription" "mp_image_subscription" {
 
 # Gets the partner image subscription
 data "oci_core_app_catalog_subscriptions" "mp_image_subscription" {
-  count = local.enabled ? 1 : 0
+  count = var.resource_count
 
   compartment_id = var.compartment_ocid
   listing_id     = local.listing_id
@@ -134,7 +133,7 @@ resource "oci_core_instance" "simple-vm" {
 
   source_details {
     source_type = "image"
-    source_id   = var.enabled ? local.listing_resource_id : ""
+    source_id   = var.resource_count == 1 ? local.listing_resource_id : ""
   }
 }
 
