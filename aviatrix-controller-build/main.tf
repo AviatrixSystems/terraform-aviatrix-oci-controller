@@ -14,7 +14,7 @@ resource "oci_core_app_catalog_listing_resource_version_agreement" "mp_image_agr
 }
 
 resource "oci_core_vcn" "vcn" {
-  count          = var.use_existing_network ? 0:1
+  count          = var.use_existing_network ? 0 : 1
   cidr_block     = var.vcn_cidr_block
   dns_label      = var.vcn_dns_label
   compartment_id = var.compartment_ocid
@@ -22,14 +22,14 @@ resource "oci_core_vcn" "vcn" {
 }
 
 resource "oci_core_internet_gateway" "igw" {
-  count          = var.use_existing_network ? 0:1
+  count          = var.use_existing_network ? 0 : 1
   compartment_id = var.compartment_ocid
   display_name   = var.igw_display_name
   vcn_id         = oci_core_vcn.vcn[count.index].id
 }
 
 resource "oci_core_subnet" "public_subnet" {
-  count                      = var.use_existing_network ? 0:1
+  count                      = var.use_existing_network ? 0 : 1
   compartment_id             = var.compartment_ocid
   vcn_id                     = oci_core_vcn.vcn[count.index].id
   cidr_block                 = var.subnet_cidr_block
@@ -103,7 +103,7 @@ resource "oci_core_network_security_group_security_rule" "rule_ingress_tcp443" {
 }
 
 resource "oci_core_default_route_table" "default_route_table" {
-  count          = var.use_existing_network ? 0:1
+  count          = var.use_existing_network ? 0 : 1
   manage_default_resource_id = oci_core_vcn.vcn[count.index].default_route_table_id
 
   route_rules {
