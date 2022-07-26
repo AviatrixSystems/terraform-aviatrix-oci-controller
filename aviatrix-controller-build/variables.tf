@@ -45,12 +45,6 @@ variable "product_version" {
   default     = "6.3.0"
 }
 
-variable "resource_count" {
-  type = number
-  description = "Resource number."
-  default = 1
-}
-
 variable "use_existing_network" {
   type        = bool
   description = "Use exist network."
