@@ -10,8 +10,8 @@ This Terraform module allows you to launch the Aviatrix Controller and create th
 ## Available Modules
 Module  | Description |
 | ------- | ----------- |
-|[aviatrix_controller_build](./aviatrix-controller-build) |Builds the Aviatrix Controller VM on OCI <br />[Source Code] https://github.com/oracle-quickstart/oci-aviatrix|
-|[aviatrix_controller_initialize](./aviatrix-controller-initialize) | Initializes the Aviatrix Controller (setting admin email, setting admin password, upgrading controller version, and setting access account) <br />[Source Code] https://github.com/AviatrixSystems/terraform-module-azure|
+|[aviatrix_controller_build](module/aviatrix-controller-build) |Builds the Aviatrix Controller VM on OCI <br />[Source Code] https://github.com/oracle-quickstart/oci-aviatrix|
+|[aviatrix_controller_initialize](module/aviatrix-controller-initialize) | Initializes the Aviatrix Controller (setting admin email, setting admin password, upgrading controller version, and setting access account) <br />[Source Code] https://github.com/AviatrixSystems/terraform-module-azure|
 
 
 ## Procedures for Building and Initializing a Controller in OCI
