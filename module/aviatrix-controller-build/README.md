@@ -89,10 +89,6 @@ module "aviatrix_controller_build" {
 
   VCN CIDR block. Default value: "10.0.0.0/16".
 
-- **routetable_display_name**
-
-  Route table display name. Default value: "controller-route-table".
-
 - **subnet_display_name**
 
   Subnet display name. Default value: "controller-subnet".
