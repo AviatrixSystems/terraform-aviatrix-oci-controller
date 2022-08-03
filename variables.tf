@@ -31,7 +31,7 @@ variable "private_key_path" {
 variable "license_model" {
   type        = string
   description = "Marketplace license model: 'BYOL' or 'PAID'."
-  default = "BYOL"
+  default     = "BYOL"
 }
 
 variable "region" {

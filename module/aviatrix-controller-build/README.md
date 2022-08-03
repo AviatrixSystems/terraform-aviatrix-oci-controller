@@ -10,15 +10,15 @@ To create an Aviatrix Controller:
 
 ```
 module "aviatrix_controller_build" {
-  source            = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build/simple"
-  tenancy_ocid      = "<< tenancy ocid >>"
-  compartment_ocid  = "<< compartment ocid >>"
-  user_ocid         = "<< user ocid >>"
-  fingerprint       = "<< fingerprint >>"
-  ssh_public_key    = "<< ssh public key path >>"
-  private_key_path  = "<< private key path >>"
-  license_model     = "<< BYOL or PAID >>"
-  region            = "<< controller region >>"
+  source             = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build/simple"
+  tenancy_ocid       = "<< tenancy ocid >>"
+  compartment_ocid   = "<< compartment ocid >>"
+  user_ocid          = "<< user ocid >>"
+  fingerprint        = "<< fingerprint >>"
+  ssh_public_key     = "<< ssh public key path >>"
+  private_key_path   = "<< private key path >>"
+  license_model      = "<< BYOL or PAID >>"
+  region             = "<< controller region >>"
   incoming_ssl_cidrs = ["<< CIDR_1 allowed for HTTPS access >>", "<< CIDR_2 allowed for HTTPS access >>", ...]
 }
 ```
