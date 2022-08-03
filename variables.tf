@@ -37,7 +37,7 @@ variable "license_model" {
 variable "region" {
   type        = string
   description = "Region."
-  default = "us-ashburn-1"
+  default     = "us-ashburn-1"
 }
 
 variable "incoming_ssl_cidrs" {
