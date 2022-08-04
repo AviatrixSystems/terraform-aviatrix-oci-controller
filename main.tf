@@ -1,5 +1,5 @@
 module "aviatrix_controller_build" {
-  source             = "./module/aviatrix-controller-build"
+  source             = "./modules/aviatrix-controller-build"
   tenancy_ocid       = var.tenancy_ocid
   compartment_ocid   = var.compartment_ocid
   user_ocid          = var.user_ocid
@@ -11,7 +11,7 @@ module "aviatrix_controller_build" {
 }
 
 module "aviatrix_controller_initialize" {
-  source                        = "./module/aviatrix-controller-initialize"
+  source                        = "./modules/aviatrix-controller-initialize"
   avx_controller_public_ip      = module.aviatrix_controller_build.aviatrix_controller_public_ip
   avx_controller_private_ip     = module.aviatrix_controller_build.aviatrix_controller_private_ip
   avx_controller_admin_email    = var.avx_controller_admin_email
