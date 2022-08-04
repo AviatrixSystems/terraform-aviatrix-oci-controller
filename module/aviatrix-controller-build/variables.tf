@@ -170,8 +170,3 @@ variable "region" {
   type        = string
   description = "Region."
 }
-
-variable "ssh_public_key" {
-  type        = string
-  description = "Public key file path."
-}

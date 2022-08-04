@@ -17,7 +17,6 @@ The following variables are requires in aviatrix_controller_build module:
 |  compartment_ocid   |                                Compartment OCID.                                |
 |      user_ocid      |                                   User OCID.                                    |
 |     fingerprint     |                         Fingerprint of the public key.                          |
-|   ssh_public_key    |                              Public key file path.                              |
 |  private_key_path   |                             Private key file path.                              |
 |       region        |                                     Region.                                     |
 |    license_model    |                   Marketplace license model: "BYOL" or "PAID"                   |

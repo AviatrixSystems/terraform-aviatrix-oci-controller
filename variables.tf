@@ -18,11 +18,6 @@ variable "fingerprint" {
   description = "Fingerprint of the public key."
 }
 
-variable "ssh_public_key" {
-  type        = string
-  description = "Public key file path."
-}
-
 variable "private_key_path" {
   type        = string
   description = "Private key file path."

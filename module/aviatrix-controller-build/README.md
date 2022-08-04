@@ -15,7 +15,6 @@ module "aviatrix_controller_build" {
   compartment_ocid   = "<< compartment ocid >>"
   user_ocid          = "<< user ocid >>"
   fingerprint        = "<< fingerprint >>"
-  ssh_public_key     = "<< ssh public key path >>"
   private_key_path   = "<< private key path >>"
   license_model      = "<< BYOL or PAID >>"
   region             = "<< controller region >>"
@@ -40,10 +39,6 @@ module "aviatrix_controller_build" {
 - **fingerprint** 
 
   Fingerprint of the public key.
-
-- **ssh_public_key**
-
-  Public key file path.
 
 - **private_key_path**
 

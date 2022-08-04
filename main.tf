@@ -4,7 +4,6 @@ module "aviatrix_controller_build" {
   compartment_ocid   = var.compartment_ocid
   user_ocid          = var.user_ocid
   fingerprint        = var.fingerprint
-  ssh_public_key     = var.ssh_public_key
   private_key_path   = var.private_key_path
   license_model      = var.license_model
   region             = var.region
