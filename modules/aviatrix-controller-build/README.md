@@ -10,7 +10,7 @@ To create an Aviatrix Controller:
 
 ```
 module "aviatrix_controller_build" {
-  source             = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build/simple"
+  source             = "github.com/AviatrixSystems/terraform-module-oci.git//modules/aviatrix-controller-build"
   tenancy_ocid       = "<< tenancy ocid >>"
   compartment_ocid   = "<< compartment ocid >>"
   user_ocid          = "<< user ocid >>"

@@ -11,7 +11,7 @@ The following example will launch aviatrix_controller_build module,  aviatrix_co
 ```
 # aviatrix_controller_build
 module "aviatrix_controller_build" {
-  source           = "./module/aviatrix-controller-build"
+  source           = "./modules/aviatrix-controller-build"
   tenancy_ocid     = "ocid1.tenancy.oc1..aaaaaaaa123456abcd"
   compartment_ocid = "ocid1.compartment.oc1..aaaaaaaa123456abcd"
   user_ocid        = "ocid1.user.oc1..aaaaaaaa123456abcd"
@@ -24,7 +24,7 @@ module "aviatrix_controller_build" {
 
 # aviatrix_controller_initialize
 module "aviatrix_controller_initialize" {
-  source                        = "./module/aviatrix-controller-initialize"
+  source                        = "./modules/aviatrix-controller-initialize"
   avx_controller_public_ip      = module.aviatrix_controller_build.aviatrix_controller_public_ip
   avx_controller_private_ip     = module.aviatrix_controller_build.aviatrix_controller_private_ip
   avx_controller_admin_email    = "test666@gmail.com"
