@@ -10,16 +10,15 @@ To create an Aviatrix Controller:
 
 ```
 module "aviatrix_controller_build" {
-  source           = "github.com/AviatrixSystems/terraform-module-oci.git//aviatrix-controller-build/simple"
-  tenancy_ocid     = "<< tenancy ocid >>"
-  compartment_ocid = "<< compartment ocid >>"
-  user_ocid        = "<< user ocid >>"
-  fingerprint      = "<< fingerprint >>"
-  ssh_public_key   = "<< ssh public key path >>"
-  private_key_path = "<< private key path >>"
-  license_model    = "<< BYOL or PAID >>"
-  region           = "<< controller region >>"
-  nsg_whitelist_ip = ["<< CIDR_1 allowed for HTTPS access >>", "<< CIDR_2 allowed for HTTPS access >>", ...]
+  source             = "github.com/AviatrixSystems/terraform-module-oci.git//modules/aviatrix-controller-build"
+  tenancy_ocid       = "<< tenancy ocid >>"
+  compartment_ocid   = "<< compartment ocid >>"
+  user_ocid          = "<< user ocid >>"
+  fingerprint        = "<< fingerprint >>"
+  private_key_path   = "<< private key path >>"
+  license_model      = "<< BYOL or PAID >>"
+  region             = "<< controller region >>"
+  incoming_ssl_cidrs = ["<< CIDR_1 allowed for HTTPS access >>", "<< CIDR_2 allowed for HTTPS access >>", ...]
 }
 ```
 
@@ -41,10 +40,6 @@ module "aviatrix_controller_build" {
 
   Fingerprint of the public key.
 
-- **ssh_public_key**
-
-  Public key file path.
-
 - **private_key_path**
 
   Private key file path.
@@ -57,9 +52,9 @@ module "aviatrix_controller_build" {
 
   Marketplace license model: "BYOL" or "PAID"
 
-- **nsg_whitelist_ip**
+- **incoming_ssl_cidrs**
 
-  List of whitelisted CIDR blocks for ingress communication.
+  The CIDRs to be allowed for HTTPS(port 443) access to the Aviatrix Controller.
 
 - **product_version**
 
@@ -88,10 +83,6 @@ module "aviatrix_controller_build" {
 - **vcn_cidr_block**
 
   VCN CIDR block. Default value: "10.0.0.0/16".
-
-- **routetable_display_name**
-
-  Route table display name. Default value: "controller-route-table".
 
 - **subnet_display_name**
 
