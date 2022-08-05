@@ -8,7 +8,7 @@ This Terraform module initializes a newly created Aviatrix Controller.
 
 ``` terraform
 module "aviatrix_controller_initialize" {
-  source                        = "github.com/AviatrixSystems/terraform-module-oci.git//modules/aviatrix-controller-initialize"
+  source                        = "AviatrixSystems/oci-controller/aviatrix//modules/aviatrix-controller-initialize"
   avx_controller_public_ip      = "<< public ip address of the Aviatrix Controller >>"
   avx_controller_private_ip     = "<< private ip address of the Aviatrix Controller >>"
   avx_controller_admin_email    = "<< admin email address for the Aviatrix Controller >>"
