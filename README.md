@@ -24,20 +24,20 @@ The following variables are requires in aviatrix_controller_build module:
 
 The following variables are requires in aviatrix_controller_initialize module:
 
-|           Attribute           |                      Description                       |
-|:-----------------------------:|:------------------------------------------------------:|
-|   avx_controller_public_ip    |         Aviatrix controller public IP address.         |
-|   avx_controller_private_ip   |        Aviatrix controller private IP address.         |
-|  avx_controller_admin_email   |        Aviatrix controller admin email address.        |
-| avx_controller_admin_password |          Aviatrix controller admin password.           |
-|        oci_tenancy_id         |                     Tenancy OCID.                      |
-|          oci_user_id          |                       User OCID.                       |
-|      oci_compartment_id       |                   Compartment OCID.                    |
-|       oci_api_key_path        |                   API key file path.                   |
-|         account_email         |       Aviatrix controller access account email.        |
-|      access_account_name      |        Aviatrix controller access account name.        |
-|     aviatrix_customer_id      |             Aviatrix customer license id".             |
-|      controller_version       | Aviatrix Controller version. Default value: "latest".  |
+|           Attribute           |                      Description                      |
+|:-----------------------------:|:-----------------------------------------------------:|
+|   avx_controller_public_ip    |        Aviatrix controller public IP address.         |
+|   avx_controller_private_ip   |        Aviatrix controller private IP address.        |
+|  avx_controller_admin_email   |       Aviatrix controller admin email address.        |
+| avx_controller_admin_password |          Aviatrix controller admin password.          |
+|        oci_tenancy_id         |                     Tenancy OCID.                     |
+|          oci_user_id          |                      User OCID.                       |
+|      oci_compartment_id       |                   Compartment OCID.                   |
+|       oci_api_key_path        |                  API key file path.                   |
+|         account_email         |       Aviatrix controller access account email.       |
+|      access_account_name      |       Aviatrix controller access account name.        |
+|     aviatrix_customer_id      |             Aviatrix customer license id.             |
+|      controller_version       | Aviatrix Controller version. Default value: "latest". |
 
 
 The following variables are optional in aviatrix_controller_build module:
@@ -84,7 +84,7 @@ In order to run `aviatrix_controller_init.py` python script, dependencies listed
 
 ## Available Modules
 
-|                                 Module                                  |                                                                                                        Description                                                                                                        |
-|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                                  Module                                  |                                                                                                        Description                                                                                                        |
+|:------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |      [aviatrix_controller_build](modules/aviatrix-controller-build)      |                                                      Builds the Aviatrix Controller VM on OCI <br />[Source Code] https://github.com/oracle-quickstart/oci-aviatrix                                                       |
 | [aviatrix_controller_initialize](modules/aviatrix-controller-initialize) | Initializes the Aviatrix Controller (setting admin email, setting admin password, upgrading controller version, and setting access account) <br />[Source Code] https://github.com/AviatrixSystems/terraform-module-azure |

@@ -19,7 +19,7 @@ module "aviatrix_controller_build" {
   private_key_path = "/Users/local/oracleidentitycloudservice_key.pem"
   license_model    = "BYOL"
   region           = "us-ashburn-1"
-  incoming_ssl_cidrs = ["152.179.42.234/32"]
+  incoming_ssl_cidrs = ["192.0.0.0/32"]
 }
 
 # aviatrix_controller_initialize
@@ -54,7 +54,7 @@ module "aviatrix_oci_module" {
   private_key_path              = "/Users/local/oracleidentitycloudservice_key.pem"
   license_model                 = "BYOL"
   region                        = "us-ashburn-1"
-  incoming_ssl_cidrs            = ["152.179.42.234/32"]
+  incoming_ssl_cidrs            = ["192.0.0.0/32"]
   avx_controller_admin_email    = "test666@gmail.com"
   avx_controller_admin_password = "Abcd1234."
   account_email                 = "test666@gmail.com"
