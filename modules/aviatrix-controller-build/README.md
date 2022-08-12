@@ -1,116 +1,51 @@
-## Aviatrix - Terraform Modules OCI - Build Aviatrix Controller
+# Aviatrix - Terraform Modules OCI - Build Aviatrix Controller
 
-### Description
+## Description
 
 This Terraform module creates an Aviatrix Controller and related components in OCI.
 
-### Usage:
+## Usage example
 
-To create an Aviatrix Controller:
+See [examples](https://github.com/AviatrixSystems/terraform-aviatrix-oci-controller/blob/master/example/README.md)
 
-```
-module "aviatrix_controller_build" {
-  source             = "github.com/AviatrixSystems/terraform-module-oci.git//modules/aviatrix-controller-build"
-  tenancy_ocid       = "<< tenancy ocid >>"
-  compartment_ocid   = "<< compartment ocid >>"
-  user_ocid          = "<< user ocid >>"
-  fingerprint        = "<< fingerprint >>"
-  private_key_path   = "<< private key path >>"
-  license_model      = "<< BYOL or PAID >>"
-  region             = "<< controller region >>"
-  incoming_ssl_cidrs = ["<< CIDR_1 allowed for HTTPS access >>", "<< CIDR_2 allowed for HTTPS access >>", ...]
-}
-```
+## Variables
 
-### Variables
+The following variables are requires in aviatrix_controller_build module:
 
-- **tenancy_ocid**
+|      Attribute      |                                   Description                                   |
+|:-------------------:|:-------------------------------------------------------------------------------:|
+|    tenancy_ocid     |                                  Tenancy OCID.                                  |
+|  compartment_ocid   |                                Compartment OCID.                                |
+|      user_ocid      |                                   User OCID.                                    |
+|     fingerprint     |                         Fingerprint of the public key.                          |
+|  private_key_path   |                             Private key file path.                              |
+|       region        |                                     Region.                                     |
+|    license_model    |                   Marketplace license model: "BYOL" or "PAID"                   |
+| incoming_ssl_cidrs  | The CIDRs to be allowed for HTTPS(port 443) access to the Aviatrix Controller.  |
 
-  Tenancy OCID.
+The following variables are optional in aviatrix_controller_build module:
 
-- **compartment_ocid**
+|      Attribute      |    Default value     |                        Description                        |
+|:-------------------:|:--------------------:|:---------------------------------------------------------:|
+|   product_version   |        6.3.0         | Aviatrix Controller Version available in the Marketplace. |
+| availability_domain |          1           |                 OCI Availability Domains.                 |
+|   vm_display_name   |      controller      |                     VM display name.                      |
+|  vm_compute_shape   |    VM.Standard2.2    |                     VM compute shape.                     |
+|  vcn_display_name   |         vcn          |                     VCN display name.                     |
+|    vcn_dns_label    |         vcn          |                      VCN DNS label.                       |
+|   vcn_cidr_block    |     10.0.0.0/16      |                      VCN CIDR block.                      |
+| subnet_display_name |        subnet        |                   Subnet display name.                    |
+|  subnet_cidr_block  |     10.0.0.0/24      |                    Subnet CIDR block.                     |
+|  subnet_dns_label   |        subnet        |                     Subnet DNS label.                     |
+|  nsg_display_name   | controller-sec-group |           Network security group display name.            |
 
-  Compartment OCID.
+## Outputs
 
-- **user_ocid**
+aviatrix_controller_build module will return the following outputs:
 
-  User OCID.
-
-- **fingerprint** 
-
-  Fingerprint of the public key.
-
-- **private_key_path**
-
-  Private key file path.
-
-- **region**
-
-  Region.
-
-- **license_model**
-
-  Marketplace license model: "BYOL" or "PAID"
-
-- **incoming_ssl_cidrs**
-
-  The CIDRs to be allowed for HTTPS(port 443) access to the Aviatrix Controller.
-
-- **product_version**
-
-  Aviatrix Controller Version available in the Marketplace. Default value: "6.3.0".
-
-- **availability_domain**
-
-  OCI Availability Domains: 1,2,3 (subject to region availability). Default value: 1.
-
-- **vm_display_name**
-
-  VM display name. Default value: "controller".
-
-- **vm_compute_shape**
-
-  VM compute shape. Default value: "VM.Standard2.2".
-
-- **vcn_display_name**
-
-  VCN display name. Default value: "aviatrix-vcn".
-
-- **vcn_dns_label**
-
-  VCN DNS label. Default value: "aviatrix".
-
-- **vcn_cidr_block**
-
-  VCN CIDR block. Default value: "10.0.0.0/16".
-
-- **subnet_display_name**
-
-  Subnet display name. Default value: "controller-subnet".
-
-- **subnet_cidr_block**
-
-  Subnet CIDR block. Default value: "10.0.0.0/24".
-
-- **subnet_dns_label**
-
-  Subnet DNS label. Default value: "management".
-
-- **nsg_display_name**
-
-  Network security group display name. Default value: "controller-sec-group".
-
-### Outputs
-
-- **aviatrix_controller_public_ip**
-
-  Controller public IP.
-
-- **aviatrix_controller_private_ip**
-
-  Controller private IP.
-
-- **aviatrix_controller_url**
-
-  Controller URL.
+|              Key               |      Description       |
+|:------------------------------:|:----------------------:|
+| aviatrix_controller_public_ip  | Controller public IP.  |
+| aviatrix_controller_private_ip | Controller private IP. |
+|    aviatrix_controller_url     |    Controller URL.     |
   

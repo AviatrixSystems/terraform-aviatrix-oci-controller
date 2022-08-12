@@ -24,36 +24,37 @@ The following variables are requires in aviatrix_controller_build module:
 
 The following variables are requires in aviatrix_controller_initialize module:
 
-|           Attribute           |                      Description                       |
-|:-----------------------------:|:------------------------------------------------------:|
-|   avx_controller_public_ip    |         Aviatrix controller public IP address.         |
-|   avx_controller_private_ip   |        Aviatrix controller private IP address.         |
-|  avx_controller_admin_email   |        Aviatrix controller admin email address.        |
-| avx_controller_admin_password |          Aviatrix controller admin password.           |
-|        oci_tenancy_id         |                     Tenancy OCID.                      |
-|          oci_user_id          |                       User OCID.                       |
-|      oci_compartment_id       |                   Compartment OCID.                    |
-|       oci_api_key_path        |                   API key file path.                   |
-|         account_email         |       Aviatrix controller access account email.        |
-|      access_account_name      |        Aviatrix controller access account name.        |
-|     aviatrix_customer_id      |             Aviatrix customer license id".             |
-|      controller_version       | Aviatrix Controller version. Default value: "latest".  |
+|           Attribute           |                      Description                      |
+|:-----------------------------:|:-----------------------------------------------------:|
+|   avx_controller_public_ip    |        Aviatrix controller public IP address.         |
+|   avx_controller_private_ip   |        Aviatrix controller private IP address.        |
+|  avx_controller_admin_email   |       Aviatrix controller admin email address.        |
+| avx_controller_admin_password |          Aviatrix controller admin password.          |
+|        oci_tenancy_id         |                     Tenancy OCID.                     |
+|          oci_user_id          |                      User OCID.                       |
+|      oci_compartment_id       |                   Compartment OCID.                   |
+|       oci_api_key_path        |                  API key file path.                   |
+|         account_email         |       Aviatrix controller access account email.       |
+|      access_account_name      |       Aviatrix controller access account name.        |
+|     aviatrix_customer_id      |             Aviatrix customer license id.             |
+|      controller_version       | Aviatrix Controller version. Default value: "latest". |
 
 
 The following variables are optional in aviatrix_controller_build module:
 
-|      Attribute      |     Default value     |                        Description                        |
-|:-------------------:|:---------------------:|:---------------------------------------------------------:|
-|   product_version   |         6.3.0         | Aviatrix Controller Version available in the Marketplace. |
-| availability_domain |           1           |                 OCI Availability Domains.                 |
-|   vm_display_name   |      controller       |                     VM display name.                      |
-|  vcn_display_name   |          vcn          |                     VCN display name.                     |
-|    vcn_dns_label    |          vcn          |                      VCN DNS label.                       |
-|   vcn_cidr_block    |      10.0.0.0/16      |                      VCN CIDR block.                      |
-| subnet_display_name |        subnet         |                   Subnet display name.                    |
-|  subnet_cidr_block  |      10.0.0.0/24      |                    Subnet CIDR block.                     |
-|  subnet_dns_label   |        subnet         |                     Subnet DNS label.                     |
-|  nsg_display_name   | controller-sec-group  |           Network security group display name.            |
+|      Attribute      |    Default value     |                        Description                        |
+|:-------------------:|:--------------------:|:---------------------------------------------------------:|
+|   product_version   |        6.3.0         | Aviatrix Controller Version available in the Marketplace. |
+| availability_domain |          1           |                 OCI Availability Domains.                 |
+|   vm_display_name   |      controller      |                     VM display name.                      |
+|  vm_compute_shape   |    VM.Standard2.2    |                     VM compute shape.                     |
+|  vcn_display_name   |         vcn          |                     VCN display name.                     |
+|    vcn_dns_label    |         vcn          |                      VCN DNS label.                       |
+|   vcn_cidr_block    |     10.0.0.0/16      |                      VCN CIDR block.                      |
+| subnet_display_name |        subnet        |                   Subnet display name.                    |
+|  subnet_cidr_block  |     10.0.0.0/24      |                    Subnet CIDR block.                     |
+|  subnet_dns_label   |        subnet        |                     Subnet DNS label.                     |
+|  nsg_display_name   | controller-sec-group |           Network security group display name.            |
 
 ## Outputs
 
@@ -83,7 +84,7 @@ In order to run `aviatrix_controller_init.py` python script, dependencies listed
 
 ## Available Modules
 
-|                                 Module                                  |                                                                                                        Description                                                                                                        |
-|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                                  Module                                  |                                                                                                        Description                                                                                                        |
+|:------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |      [aviatrix_controller_build](modules/aviatrix-controller-build)      |                                                      Builds the Aviatrix Controller VM on OCI <br />[Source Code] https://github.com/oracle-quickstart/oci-aviatrix                                                       |
 | [aviatrix_controller_initialize](modules/aviatrix-controller-initialize) | Initializes the Aviatrix Controller (setting admin email, setting admin password, upgrading controller version, and setting access account) <br />[Source Code] https://github.com/AviatrixSystems/terraform-module-azure |

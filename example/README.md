@@ -11,7 +11,7 @@ The following example will launch aviatrix_controller_build module,  aviatrix_co
 ```
 # aviatrix_controller_build
 module "aviatrix_controller_build" {
-  source           = "./modules/aviatrix-controller-build"
+  source           = "AviatrixSystems/oci-controller/aviatrix//modules/aviatrix-controller-build"
   tenancy_ocid     = "ocid1.tenancy.oc1..aaaaaaaa123456abcd"
   compartment_ocid = "ocid1.compartment.oc1..aaaaaaaa123456abcd"
   user_ocid        = "ocid1.user.oc1..aaaaaaaa123456abcd"
@@ -19,12 +19,12 @@ module "aviatrix_controller_build" {
   private_key_path = "/Users/local/oracleidentitycloudservice_key.pem"
   license_model    = "BYOL"
   region           = "us-ashburn-1"
-  incoming_ssl_cidrs = ["152.179.42.234/32"]
+  incoming_ssl_cidrs = ["192.0.0.0/32"]
 }
 
 # aviatrix_controller_initialize
 module "aviatrix_controller_initialize" {
-  source                        = "./modules/aviatrix-controller-initialize"
+  source                        = "AviatrixSystems/oci-controller/aviatrix//modules/aviatrix-controller-initialize"
   avx_controller_public_ip      = module.aviatrix_controller_build.aviatrix_controller_public_ip
   avx_controller_private_ip     = module.aviatrix_controller_build.aviatrix_controller_private_ip
   avx_controller_admin_email    = "test666@gmail.com"
@@ -46,7 +46,7 @@ The following example will launch the entire OCI controller module (build + init
 
 ```
 module "aviatrix_oci_module" {
-  source                        = "github.com/AviatrixSystems/terraform-module-oci.git"
+  source                        = "AviatrixSystems/oci-controller/aviatrix"
   tenancy_ocid                  = "ocid1.tenancy.oc1..aaaaaaaa123456abcd"
   compartment_ocid              = "ocid1.compartment.oc1..aaaaaaaa123456abcd"
   user_ocid                     = "ocid1.user.oc1..aaaaaaaa123456abcd"
@@ -54,7 +54,7 @@ module "aviatrix_oci_module" {
   private_key_path              = "/Users/local/oracleidentitycloudservice_key.pem"
   license_model                 = "BYOL"
   region                        = "us-ashburn-1"
-  incoming_ssl_cidrs            = ["152.179.42.234/32"]
+  incoming_ssl_cidrs            = ["192.0.0.0/32"]
   avx_controller_admin_email    = "test666@gmail.com"
   avx_controller_admin_password = "Abcd1234."
   account_email                 = "test666@gmail.com"
