@@ -1,9 +1,3 @@
-locals {
-  listing_id               = var.license_model == "BYOL" ? var.mp_listings["BYOL"] : var.mp_listings["PAID"]
-  listing_resource_version = var.license_model == "BYOL" ? var.mp_byol_versions[var.product_version] : var.mp_paid_versions[var.product_version]
-  listing_resource_id      = var.license_model == "BYOL" ? var.mp_byol_listing_resource_id[var.mp_byol_versions[var.product_version]] : var.mp_paid_listing_resource_id[var.mp_paid_versions[var.product_version]]
-}
-
 #Get Image Agreement
 resource "oci_core_app_catalog_listing_resource_version_agreement" "mp_image_agreement" {
   listing_id               = local.listing_id
@@ -127,7 +121,16 @@ resource "oci_core_instance" "simple-vm" {
 
   source_details {
     source_type = "image"
-    source_id   = local.listing_resource_id
+    source_id   = data.oci_core_app_catalog_subscriptions.app_catalog_subscriptions.app_catalog_subscriptions[0]["listing_resource_id"]
   }
 }
 
+data "oci_core_app_catalog_subscriptions" "app_catalog_subscriptions" {
+  compartment_id = var.compartment_ocid
+  listing_id     = oci_core_app_catalog_subscription.mp_image_subscription.listing_id
+
+  filter {
+    name   = "listing_resource_version"
+    values = [oci_core_app_catalog_subscription.mp_image_subscription.listing_resource_version]
+  }
+}
