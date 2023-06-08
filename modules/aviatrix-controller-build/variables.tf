@@ -172,7 +172,7 @@ variable "region" {
 }
 
 data "http" "image_info" {
-  url = "https://release.prod.sre.aviatrix.com/image-details/oci_image_details.json"
+  url = "https://release.prod.sre.aviatrix.com/image-details/oci_controller_image_details.json"
   request_headers = {
     "Accept" = "application/json"
   }
