@@ -25,19 +25,19 @@ The following variables are requires in aviatrix_controller_build module:
 
 The following variables are optional in aviatrix_controller_build module:
 
-|      Attribute      |    Default value     |                        Description                        |
-|:-------------------:|:--------------------:|:---------------------------------------------------------:|
-|   product_version   |        6.3.0         | Aviatrix Controller Version available in the Marketplace. |
-| availability_domain |          1           |                 OCI Availability Domains.                 |
-|   vm_display_name   |      controller      |                     VM display name.                      |
-|  vm_compute_shape   |    VM.Standard2.2    |                     VM compute shape.                     |
-|  vcn_display_name   |         vcn          |                     VCN display name.                     |
-|    vcn_dns_label    |         vcn          |                      VCN DNS label.                       |
-|   vcn_cidr_block    |     10.0.0.0/16      |                      VCN CIDR block.                      |
-| subnet_display_name |        subnet        |                   Subnet display name.                    |
-|  subnet_cidr_block  |     10.0.0.0/24      |                    Subnet CIDR block.                     |
-|  subnet_dns_label   |        subnet        |                     Subnet DNS label.                     |
-|  nsg_display_name   | controller-sec-group |           Network security group display name.            |
+|      Attribute      |        Default value         |                        Description                        |
+|:-------------------:|:----------------------------:|:---------------------------------------------------------:|
+|   product_version   | BYOL: "6.3.1", PAID: "6.3.0" | Aviatrix Controller Version available in the Marketplace. |
+| availability_domain |              1               |                 OCI Availability Domains.                 |
+|   vm_display_name   |          controller          |                     VM display name.                      |
+|  vm_compute_shape   |        VM.Standard2.2        |                     VM compute shape.                     |
+|  vcn_display_name   |             vcn              |                     VCN display name.                     |
+|    vcn_dns_label    |             vcn              |                      VCN DNS label.                       |
+|   vcn_cidr_block    |         10.0.0.0/16          |                      VCN CIDR block.                      |
+| subnet_display_name |            subnet            |                   Subnet display name.                    |
+|  subnet_cidr_block  |         10.0.0.0/24          |                    Subnet CIDR block.                     |
+|  subnet_dns_label   |            subnet            |                     Subnet DNS label.                     |
+|  nsg_display_name   |     controller-sec-group     |           Network security group display name.            |
 
 ## Outputs
 

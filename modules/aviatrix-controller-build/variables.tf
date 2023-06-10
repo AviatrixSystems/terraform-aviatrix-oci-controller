@@ -42,7 +42,7 @@ variable "mp_paid_listing_resource_id" {
 variable "product_version" {
   type        = string
   description = "Aviatrix Controller Version available in the Marketplace."
-  default     = "6.3.0"
+  default     = ""
 }
 
 variable "use_existing_network" {
@@ -169,4 +169,16 @@ variable "private_key_path" {
 variable "region" {
   type        = string
   description = "Region."
+}
+
+data "http" "image_info" {
+  url = "https://release.prod.sre.aviatrix.com/image-details/oci_controller_image_details.json"
+  request_headers = {
+    "Accept" = "application/json"
+  }
+}
+
+locals {
+  listing_id               = var.license_model == "BYOL" ? jsondecode(data.http.image_info.response_body)["BYOL"][local.listing_resource_version] : jsondecode(data.http.image_info.response_body)["PAID"][local.listing_resource_version]
+  listing_resource_version = var.product_version != "" ? var.product_version : (var.license_model == "BYOL" ? "6.3.1" : "6.3.0")
 }
