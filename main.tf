@@ -24,6 +24,8 @@ module "aviatrix_controller_initialize" {
   access_account_name           = var.access_account_name
   aviatrix_customer_id          = var.aviatrix_customer_id
   controller_version            = var.controller_version
+
+  depends_on = [
+    module.aviatrix_controller_build
+  ]
 }
-
-
